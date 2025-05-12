@@ -21,3 +21,21 @@
     </table>
   </div>
 </template>
+
+<script>
+import axios from 'axios'
+
+export default {
+    name: 'Comuna',
+    data(){
+        return {
+            comunas: []
+        }
+    },
+    mounted(){
+        axios
+            .get('http://127.0.0.1:8000/api/comunas')
+            .then(response => (this.comunas = response.data.comunas))
+    }
+}
+</script>
